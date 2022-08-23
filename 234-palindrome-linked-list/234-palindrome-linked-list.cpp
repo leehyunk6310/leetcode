@@ -11,53 +11,26 @@
 class Solution {
 public:
     bool isPalindrome(ListNode* head) {
-        ListNode* temp = new ListNode();
-        temp = head;
-        vector<int> v;
-        int count = 0;
-        int half = 0;
+        // 11:15 시작
+        vector<int> v1, v2;
         
-        while (temp != NULL)
+        while (head)
         {
-            count++;
-            temp = temp->next;
-        }
-        half = count/2;
-        
-        if (count%2 == 0)
-        {
-            while(half)
-            {
-                v.push_back(head->val);
-                head = head->next;
-                half--;
-            }
-        }
-        else
-        {
-            while(half)
-            {
-                v.push_back(head->val);
-                head = head->next;
-                half--;
-            }
+            v1.push_back(head->val);
             head = head->next;
         }
         
-        // 벡터와 head node의 값들 비교
-        while(v.size() != 0)
+        v2 = v1;
+        reverse(v1.begin(), v1.end());
+        
+        for (int i=0; i<v1.size(); i++)
         {
-            if (v.back() == head->val)
-            {
-                v.pop_back();
-                head = head->next;
-            }
-            else
+            if (v1[i] != v2[i])
                 return false;
         }
-        
-        
-        
+            
         return true;
+            
+        
     }
 };
