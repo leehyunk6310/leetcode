@@ -1,19 +1,18 @@
 class Solution {
 public:
     vector<vector<int>> ans;
+    vector<int> visited;
     
     vector<vector<int>> allPathsSourceTarget(vector<vector<int>>& graph) {
         // 11:41
         // backtracking
-        vector<int> visited;
-        
-        dfs(graph, visited, 0);
+        dfs(graph, 0);
         
         return ans;
         
     }
     
-    void dfs(vector<vector<int>> graph, vector<int> visited, int node)
+    void dfs(vector<vector<int>> graph, int node)
     {
         visited.push_back(node);
         
@@ -21,9 +20,9 @@ public:
             ans.push_back(visited);
         
         for (int i=0; i<graph[node].size(); i++)
-            dfs(graph, visited, graph[node][i]);
+            dfs(graph, graph[node][i]);
         
-        
-        
+        // for backtracking
+        visited.pop_back();  
     }
 };
