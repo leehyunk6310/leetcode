@@ -19,8 +19,10 @@ public:
         if (node == graph.size()-1)
             ans.push_back(visited);
         
-        for (int i=0; i<graph[node].size(); i++)
-            dfs(graph, graph[node][i]);
+        // for (int i=0; i<graph[node].size(); i++)
+        //     dfs(graph, graph[node][i]);
+        for (auto g : graph[node])
+            dfs(graph, g);
         
         // for backtracking
         visited.pop_back();  
