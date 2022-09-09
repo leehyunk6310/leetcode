@@ -10,22 +10,25 @@
  * };
  */
 class Solution {
-public:
+public:        
     vector<int> inorderTraversal(TreeNode* root) {
-        // 좌, 중, 우 순으로
+        // 11:55
         vector<int> ans;
+                
         dfs(root, ans);
         
         return ans;
+        
     }
     
     void dfs(TreeNode* root, vector<int>& ans)
     {
-        if (root == NULL)
+        if (!root)
             return;
         
         dfs(root->left, ans);
         ans.push_back(root->val);
         dfs(root->right, ans);
+        
     }
 };
