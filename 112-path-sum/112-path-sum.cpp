@@ -16,6 +16,7 @@ public:
         // targetSum에서 방문한 노드의 값을 뺀다.
         if (!root)
             return 0;
+        
         targetSum -= root->val;
         
         // 리프노드에서 targetSum이 0이 되면 true 반환
